@@ -1,9 +1,10 @@
 package com.example.apiadapter
 
-class BeerModel (image_url: ArrayList<String>){
-    var image_url:ArrayList<String>? = null
+class BeerModel (results : ArrayList<Results>){
 
-    init {
-        this.image_url = image_url
+    var results : ArrayList<Results>? = null
+    init{
+        this.results = results
     }
+
 }

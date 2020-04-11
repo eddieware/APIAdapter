@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.beer_cardview.view.*
 
-class BeerAdapter (var list:ArrayList<String>): RecyclerView.Adapter<BeerAdapter.ViewHolder>(){
+class BeerAdapter (var list:ArrayList<Results>): RecyclerView.Adapter<BeerAdapter.ViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BeerAdapter.ViewHolder {
         val layout = LayoutInflater.from(parent?.context).inflate(R.layout.beer_cardview,parent,false)
         return ViewHolder(layout)
@@ -25,7 +25,7 @@ class BeerAdapter (var list:ArrayList<String>): RecyclerView.Adapter<BeerAdapter
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindItem(data:String){
+        fun bindItem(data:Results){
             Glide.with(itemView.context).load(data).into(itemView.thumbnail)
         }
     }

@@ -21,7 +21,7 @@ class BeerActivity : AppCompatActivity()  {
         var raza = intent.getStringExtra("RAZA").toLowerCase()
         txtHeader.text = "Raza del Perro: "+raza
         RequestVolley("https://api.punkapi.com/v2/beers?beer_name=lager")
-        txtHeader.text = "Raza del Perro: "+raza
+
     }
 
     private fun RequestVolley(url: String) {
@@ -30,12 +30,13 @@ class BeerActivity : AppCompatActivity()  {
                 response ->
             try {
                 val gson = Gson()
-                val listDogs = gson.fromJson(response,BeerModel::class.java)
-                val adaptador = BeerAdapter(listDogs.image_url!!)
-                println(adaptador)
+                val listDogs = gson.fromJson(response,Results[].class).toList()
+                val adaptador = BeerAdapter(listDogs)
+                println(listDogs.results!!.get(0).image_url)
                 println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 rcvList.adapter = adaptador
             } catch (e: Exception) {
+                e.printStackTrace()
 
             }
         }, Response.ErrorListener {  })
