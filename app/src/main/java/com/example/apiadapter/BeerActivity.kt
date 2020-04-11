@@ -21,7 +21,7 @@ class BeerActivity : AppCompatActivity()  {
         val intent = this.intent
         var cerveza = intent.getStringExtra("RAZA").toLowerCase()
         txtHeader.text = "Resultados cerveza: "+cerveza
-        RequestVolley("https://api.punkapi.com/v2/beers?beer_name="+cerveza)
+        RequestVolley("https://api.punkapi.com/v2/beers?beer_name=lager")
 
     }
 
