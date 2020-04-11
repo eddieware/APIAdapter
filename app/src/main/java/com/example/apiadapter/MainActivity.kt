@@ -28,3 +28,5 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
+class HomeFeed(val videos:List<Results>)

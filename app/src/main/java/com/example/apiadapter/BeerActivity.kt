@@ -19,9 +19,9 @@ class BeerActivity : AppCompatActivity()  {
         rcvList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
 
         val intent = this.intent
-        var raza = intent.getStringExtra("RAZA").toLowerCase()
-        txtHeader.text = "Raza del Perro: "+raza
-        RequestVolley("https://api.punkapi.com/v2/beers?beer_name=lager")
+        var cerveza = intent.getStringExtra("RAZA").toLowerCase()
+        txtHeader.text = "Resultados cerveza: "+cerveza
+        RequestVolley("https://api.punkapi.com/v2/beers?beer_name="+cerveza)
 
     }
 
