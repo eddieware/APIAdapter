@@ -26,7 +26,7 @@ class BeerAdapter (var list:ArrayList<Results>): RecyclerView.Adapter<BeerAdapte
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(data:Results){
-            Glide.with(itemView.context).load(data).into(itemView.thumbnail)
+            Glide.with(itemView.context).load(data.image_url).into(itemView.thumbnail)
         }
     }
 }

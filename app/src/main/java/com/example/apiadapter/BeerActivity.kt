@@ -8,6 +8,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.beer_activity_list.*
 
 class BeerActivity : AppCompatActivity()  {
@@ -29,10 +30,11 @@ class BeerActivity : AppCompatActivity()  {
         val request = StringRequest(Request.Method.GET, url, Response.Listener<String> {
                 response ->
             try {
+                val myType = object : TypeToken<ArrayList<Results>>() {}.type
                 val gson = Gson()
-                val listDogs = gson.fromJson(response,Results[].class).toList()
+                val listDogs = gson.fromJson<ArrayList<Results>>(response,myType)
                 val adaptador = BeerAdapter(listDogs)
-                println(listDogs.results!!.get(0).image_url)
+                println(listDogs.get(0).image_url)
                 println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 rcvList.adapter = adaptador
             } catch (e: Exception) {
