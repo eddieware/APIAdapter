@@ -1,20 +1,16 @@
 package com.example.apiadapter
 
 import android.content.Intent
-import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
-import org.json.JSONArray
-import java.net.HttpURLConnection
-import java.net.URL
+import kotlinx.android.synthetic.main.beer_activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class BeerMainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.beer_activity_main)
 
 
         searchBtn.setOnClickListener {
@@ -29,4 +25,4 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-class HomeFeed(val videos:List<Results>)
+
